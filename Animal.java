@@ -31,7 +31,7 @@ abstract class Animal {
         this.name = name;
     } 
 
-    String getString() {
+    String getAnimalName() {
         return this.name;
     }
 

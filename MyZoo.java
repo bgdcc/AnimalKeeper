@@ -24,9 +24,7 @@ public class MyZoo {
     OpenEnclosure home14 = new OpenEnclosure();
 
     // Initialize a HashMap which tracks the number of a given home.
-    HashMap<Integer, Accomodation> homeNumbers = new HashMap<>();
-
-    void addHouseNumber() {
+    static HashMap<Integer, Accomodation> homeNumbers = new HashMap<>() {
         homeNumbers.put(0, home0);
         homeNumbers.put(1, home1);
         homeNumbers.put(2, home2);
@@ -43,13 +41,6 @@ public class MyZoo {
         homeNumbers.put(13, home13);
         homeNumbers.put(14, home14);
     }
-
-    MyZoo.addHouseNumber();
-
-
-
-
-
 
     public Hay hay = new Hay();
     public Corn corn = new Corn();
