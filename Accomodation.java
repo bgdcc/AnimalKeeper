@@ -1,55 +1,73 @@
-import java.util.HashSet;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 // Class describing the characteristics of an accomodation.
-abstract class Accomodation {
-    // Initializes 2 integers which record the accomodation's maximum population and its current population.
+public class Accomodation {
+
+    /* Initializes 2 integers which record 
+    *  the accomodation's maximum population and its current population.
+    */
     int maxSize;
     int currentSize;
 
-    HashSet<String> nameList = new HashSet<>();
+    // Create a ArrayList which stores the name of every animal in the accomodation.
+    ArrayList<String> nameList = new ArrayList<>();
 
-    // Create a HashSet which tracks the animal types this accomodation is best-suited for.
-    HashSet<String> preferredAnimals = new HashSet<>();
+    // Create a ArrayList which tracks the animal types this accomodation is best-suited for.
+    ArrayList<String> preferredAnimals = new ArrayList<>();
+
+    // Create a ArrayList which stores Animal objects.
+    ArrayList<Animal> residents = new ArrayList<>();
 
     // Adds an animal to the current population.
-    void addAnimals() {
-        this.currentSize++;
+    public void addAnimals(Animal ani) {
+        this.residents.add(ani);
+        this.nameList.add(ani.getAnimalName());
+        this.currentSize = this.residents.size();
     }
 
-    void subtractAnimals() {
-        this.currentSize--;
+    public void subtractAnimals(Animal ani) {
+        this.residents.remove(ani);
+        this.nameList.remove(ani.getAnimalName());
+        this.currentSize = this.residents.size();
     }
 
-    // Returns the maximum population this accom
-    int getMaxSize() {
+    // Returns the maximum population this accomodation can handle.
+    public int retrieveMaxSize() {
         return this.maxSize;
     }
 
-    int getCurrentSize() {
-        return this.currentSize;
-    }
 
-    void addName(String name) {
-        nameList.add(name);
+    // Returns the current population of the accomodation.
+    public int retrieveCurrentSize() {
+        return this.currentSize;
     }
 
 }
 
 class Cage extends Accomodation {
-    this.maximumSize = 2;
+    Cage() {
+        this.maxSize = 2;
 
-    
-    this.preferredAnimals.add(Lion);
-    this.preferredAnimals.add(Tiger);
-    this.preferredAnimals.add(Leopard);
-    this.preferredAnimals.add(Bear);
+        this.preferredAnimals.add("Lion");
+        this.preferredAnimals.add("Tiger");
+        this.preferredAnimals.add("Leopard");
+        this.preferredAnimals.add("Bear");
+    }
 
 }  
 
 class OpenEnclosure extends Accomodation {
-    this.maximumSize = 6;
-    this.preferredAnimals.add("Lion");
+    OpenEnclosure() {
+        this.maxSize = 6;
+
+        this.preferredAnimals.add("Lion");
+        this.preferredAnimals.add("Tiger");
+        this.preferredAnimals.add("Leopard");
+        this.preferredAnimals.add("Bear");
+        this.preferredAnimals.add("Giraffe");
+        this.preferredAnimals.add("Zebra");
+        this.preferredAnimals.add("Antelope");
+    }
 }
 
 

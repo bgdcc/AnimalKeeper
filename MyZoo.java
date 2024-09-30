@@ -1,30 +1,35 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MyZoo {
+abstract class MyZoo {
     // Initialize an ArrayList which tracks the animal names.
-    static ArrayList<String> animalList = new ArrayList<>();
+    static ArrayList<String> animalNameList = new ArrayList<>();
+    static ArrayList<Animal> animalList = new ArrayList<>();
 
     // Initialize each accomodation.
-    Cage home0 = new Cage();
-    Cage home1 = new Cage();
-    Cage home2 = new Cage();
-    Cage home3 = new Cage();
-    Cage home4 = new Cage();
-    Cage home5 = new Cage();
-    Cage home6 = new Cage();
-    Cage home7 = new Cage();
-    Cage home8 = new Cage();
-    Cage home9 = new Cage();
+    static Cage home0 = new Cage();
+    static Cage home1 = new Cage();
+    static Cage home2 = new Cage();
+    static Cage home3 = new Cage();
+    static Cage home4 = new Cage();
+    static Cage home5 = new Cage();
+    static Cage home6 = new Cage();
+    static Cage home7 = new Cage();
+    static Cage home8 = new Cage();
+    static Cage home9 = new Cage();
 
-    OpenEnclosure home10 = new OpenEnclosure();
-    OpenEnclosure home11 = new OpenEnclosure();
-    OpenEnclosure home12 = new OpenEnclosure();
-    OpenEnclosure home13 = new OpenEnclosure();
-    OpenEnclosure home14 = new OpenEnclosure();
+    static OpenEnclosure home10 = new OpenEnclosure();
+    static OpenEnclosure home11 = new OpenEnclosure();
+    static OpenEnclosure home12 = new OpenEnclosure();
+    static OpenEnclosure home13 = new OpenEnclosure();
+    static OpenEnclosure home14 = new OpenEnclosure();
 
     // Initialize a HashMap which tracks the number of a given home.
-    static HashMap<Integer, Accomodation> homeNumbers = new HashMap<>() {
+
+
+    public static HashMap<Integer, Accomodation> houseNumbers() {
+        HashMap<Integer, Accomodation> homeNumbers = new HashMap<>();
+
         homeNumbers.put(0, home0);
         homeNumbers.put(1, home1);
         homeNumbers.put(2, home2);
@@ -40,12 +45,21 @@ public class MyZoo {
         homeNumbers.put(12, home12);
         homeNumbers.put(13, home13);
         homeNumbers.put(14, home14);
+
+        return homeNumbers;
     }
 
-    public Hay hay = new Hay();
-    public Corn corn = new Corn();
-    Grain grain = new Grain();
-    Carrots carrots = new Carrots();
-    Chicken chicken = new Chicken();
-    Beef beef = new Beef();
+    static Hay hay = new Hay();
+    static Corn corn = new Corn();
+    static Grain grain = new Grain();
+    static Carrots carrots = new Carrots();
+    static Chicken chicken = new Chicken();
+    static Beef beef = new Beef();
+
+    // Permamnently remove an Animal from the Zoo.
+    static void exileAnimal(Animal ani) {
+        animalNameList.remove(ani.getAnimalName());
+        animalList.remove(ani);
+        
+    }
 }

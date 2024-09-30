@@ -1,5 +1,6 @@
 abstract class Food {
     private String name = new String();
+
     private final int maxCapacity;
     private int currentCapacity;
 
@@ -10,22 +11,23 @@ abstract class Food {
     }
 
     // Implementing buyFood method; for command 3
-    int buyFood(int amount) {
-        if (currentCapacity + amount > maxCapacity) {
-            return 0;
-        }
+    boolean inspectFood (int amount) {
+        if(currentCapacity + amount > maxCapacity) {
+            return false;
+        } 
 
-        currentCapacity += amount;
-        return 1;
+        return true;
     }
 
-    // Implementing method feedHome; for command 4
 
-    int feedHome(int amountTofeed, Accomodation foodDestination) {
+    void addFood(int amount) {
+        this.currentCapacity += amount;
+    }
+
+    // Implementing feedHome method; for command 4
+
+    void feedHome(int amountTofeed) {
         currentCapacity -= amountTofeed;
-
-
-        return 0;
 
     }
 
@@ -85,5 +87,3 @@ class Beef extends Food {
     }
 
 }
-
-
